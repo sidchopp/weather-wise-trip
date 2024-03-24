@@ -7,7 +7,7 @@ import { Listbox, Transition } from "@headlessui/react";
 import { cityNames } from "@/lib/cityNames";
 import { ChevronUpDownIcon } from "@/assets/icons";
 
-const CitySelectionDropdown = () => {
+const CitySelectionDropdown = (): React.ReactElement => {
   return (
     <div className="fixed top-5 w-72">
       <Listbox>
