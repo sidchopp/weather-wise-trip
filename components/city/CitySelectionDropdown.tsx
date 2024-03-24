@@ -12,7 +12,7 @@ const CitySelectionDropdown = (): React.ReactElement => {
     <div className="fixed top-5 w-72">
       <Listbox>
         <div className="relative mt-1">
-          <Listbox.Button className="relative w-full cursor-default rounded-lg bg-blue-50 dark:bg-blue-800 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+          <Listbox.Button className="relative w-full cursor-default rounded-lg bg-blue-600 dark:bg-blue-500 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
             <span className="block truncate">Select a City</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <ChevronUpDownIcon />
@@ -24,7 +24,7 @@ const CitySelectionDropdown = (): React.ReactElement => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white dark:bg-gray-800 py-1 text-base sm:text-sm shadow-lg ring-1 ring-black/5 focus:outline-none">
+            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-gray-100 dark:bg-gray-700 py-1 text-base sm:text-sm shadow-lg ring-1 ring-black/5 focus:outline-none">
               {cityNames.map((city, cityIdx) => (
                 <Listbox.Option
                   key={cityIdx}

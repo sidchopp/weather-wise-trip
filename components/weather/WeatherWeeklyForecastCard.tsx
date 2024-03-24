@@ -12,7 +12,7 @@ const WeatherWeeklyForecastCard = ({
 }: WeatherWeeklyForecastCardProps): React.ReactElement => {
   return (
     <div className="bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-lg p-6 flex flex-col h-full w-full my-10">
-      <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-8 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8 gap-4">
         {weatherData.daily.map((item, index) => (
           <div key={item.dt}>
             <div

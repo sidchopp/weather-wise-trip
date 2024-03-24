@@ -12,9 +12,9 @@ const WeatherTodayCard = ({
   const iconCode = weatherToday.weather[0].icon;
 
   return (
-    <div className="bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-lg p-6 flex flex-col h-full">
-      <div className="flex flex-row items-center">
-        <h2 className="mb-4 text-5xl md:text-5xl lg:text-7xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white">
+    <div className="bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-lg sm:p-4 p-6 flex flex-col h-full">
+      <div className="flex md:flex-row items-center">
+        <h2 className="mb-4 text-3xl md:text-4xl lg:text-7xl font-bold lg:font-extrabold text-gray-900 dark:text-white">
           {Math.round(weatherData.current.temp)}{" "}
           <span className="text-blue-600 dark:text-blue-500">°C</span>
         </h2>
