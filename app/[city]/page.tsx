@@ -1,12 +1,13 @@
 import { ReactElement } from "react";
 import { format } from "date-fns";
 
-import { Heading } from "@/components";
 import {
+  Heading,
+  CityDescriptionCard,
+  CitySelectionDropdown,
   WeatherTodayCard,
   WeatherWeeklyForecastCard,
-} from "@/components/weather";
-import { CityDescriptionCard } from "@/components/city";
+} from "@/components";
 import { fetchCityInfo, fetchWeatherInfo } from "@/lib/api";
 
 interface CityHomeProps {
@@ -26,7 +27,8 @@ const CityHome = async ({ params }: CityHomeProps): Promise<ReactElement> => {
   const { cityData, weatherData } = cityDetails;
 
   return (
-    <main className="p-8">
+    <main className="pt-20 px-8 md:p-20">
+      <CitySelectionDropdown />
       <Heading />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex flex-col md:flex-row">
         <div className="col-span-1 md:col-span-1">
