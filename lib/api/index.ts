@@ -1,2 +1,2 @@
-export * from "./fetchCityInfoApi";
-export * from "./fetchWeatherInfoApi";
+export * from "./fetchCityInfo";
+export * from "./fetchWeatherInfo";
