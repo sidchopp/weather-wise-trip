@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { WeatherData } from "./types";
+import { format } from "date-fns";
+import { SunIcon } from "../../assets/icons";
 
 interface WeatherCardProps {
   weatherData: WeatherData;
@@ -25,23 +27,33 @@ const WeatherTodayCard = ({
           alt="Weather icon"
         />
       </div>
-      <p className="text-base lg:text-lg text-gray-500 dark:text-gray-400 py-1">
-        {weatherToday.summary}
-      </p>
-      <p className="flex flex-wrap items-center text-base lg:text-lg font-medium">
-        <span className="mr-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-3 text-base lg:text-lg">
+        <h3 className="lg:col-span-1">
+          Feels like {Math.round(weatherData.current.feels_like)}°C
+        </h3>
+        <p className="lg:col-span-1">
           {Math.round(weatherToday.temp.max)}°C /{" "}
-          {Math.round(weatherToday.temp.min)}
-          °C
-        </span>
-        <span>Feels like : {Math.round(weatherData.current.feels_like)}°C</span>
-      </p>
-      <span className="text-sm py-1 text-slate-500 dark:text-slate-300">
-        <p className="py-1">
+          {Math.round(weatherToday.temp.min)}°C
+        </p>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-3 text-sm text-slate-500 dark:text-slate-300">
+        <p>
           Visibility: {Math.round(weatherData.current.visibility / 1000)} miles
         </p>
         <p>Humidity: {Math.round(weatherData.current.humidity)}%</p>
-      </span>
+      </div>
+      <p className="text-base lg:text-lg text-gray-500 dark:text-gray-400 py-1">
+        {weatherToday.summary}
+      </p>
+      <div className="flex flex-row py-2">
+        <div>
+          <SunIcon />
+        </div>
+        <div className="flex flex-1 items-center justify-left pl-2 text-sm">
+          {format(new Date(weatherData.current.sunrise * 1000), "p")} /{" "}
+          {format(new Date(weatherData.current.sunset * 1000), "p")}
+        </div>
+      </div>
     </div>
   );
 };
