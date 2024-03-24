@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { format } from "date-fns";
 
-import { SunIcon } from "@/assets/icons";
 import { WeatherData } from "./types";
 
 interface WeatherWeeklyForecastCardProps {
@@ -44,17 +43,6 @@ const WeatherWeeklyForecastCard = ({
             <p className="text-xs text-slate-700 dark:text-slate-300 font-light">
               {item.summary}
             </p>
-            <div className="flex flex-row py-2">
-              <div>
-                <SunIcon />
-              </div>
-              <div className="flex flex-1 items-center justify-left pl-2">
-                <p className="text-xs">
-                  {format(new Date(item.sunrise * 1000), "p")} /{" "}
-                  {format(new Date(item.sunset * 1000), "p")}
-                </p>
-              </div>
-            </div>
           </div>
         ))}
       </div>

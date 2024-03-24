@@ -1,7 +1,5 @@
 import Image from "next/image";
 import { WeatherData } from "./types";
-import { format } from "date-fns";
-import { SunIcon } from "../../assets/icons";
 
 interface WeatherCardProps {
   weatherData: WeatherData;
@@ -45,15 +43,6 @@ const WeatherTodayCard = ({
       <p className="text-base lg:text-lg text-gray-500 dark:text-gray-400 py-1">
         {weatherToday.summary}
       </p>
-      <div className="flex flex-row py-2">
-        <div>
-          <SunIcon />
-        </div>
-        <div className="flex flex-1 items-center justify-left pl-2 text-sm">
-          {format(new Date(weatherData.current.sunrise * 1000), "p")} /{" "}
-          {format(new Date(weatherData.current.sunset * 1000), "p")}
-        </div>
-      </div>
     </div>
   );
 };
