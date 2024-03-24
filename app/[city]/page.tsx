@@ -6,6 +6,7 @@ import {
   WeatherTodayCard,
   WeatherWeeklyForecastCard,
 } from "@/components/weather";
+import { CityDescriptionCard } from "@/components/city";
 import { fetchCityInfo, fetchWeatherInfo } from "@/lib/api";
 
 interface CityHomeProps {
@@ -31,7 +32,11 @@ const CityHome = async ({ params }: CityHomeProps): Promise<ReactElement> => {
         <div className="col-span-1 md:col-span-1">
           <WeatherTodayCard weatherData={weatherData} />
         </div>
-        {/* City Description card here... */}
+        <div className="col-span-1 md:col-span-2 flex flex-col h-full">
+          <div className="flex-grow">
+            <CityDescriptionCard cityData={cityData} />
+          </div>
+        </div>
       </div>
       <WeatherWeeklyForecastCard weatherData={weatherData} />
     </main>
