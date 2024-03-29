@@ -31,16 +31,20 @@ const CityHome = async ({ params }: CityHomeProps): Promise<ReactElement> => {
       <CitySelectionDropdown />
       <Heading />
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 flex flex-col md:flex-row">
-        <div className="col-span-1 md:col-span-1">
-          <WeatherTodayCard weatherData={weatherData} />
-        </div>
-        <div className="col-span-1 md:col-span-2 flex flex-col h-full">
-          <div className="flex-grow">
-            <CityDescriptionCard cityData={cityData} />
+        {weatherData && (
+          <div className="col-span-1 md:col-span-1">
+            <WeatherTodayCard weatherData={weatherData} />
           </div>
-        </div>
+        )}
+        {cityData && (
+          <div className="col-span-1 md:col-span-2 flex flex-col h-full">
+            <div className="flex-grow">
+              <CityDescriptionCard cityData={cityData} />
+            </div>
+          </div>
+        )}
       </div>
-      <WeatherWeeklyForecastCard weatherData={weatherData} />
+      {weatherData && <WeatherWeeklyForecastCard weatherData={weatherData} />}
     </main>
   );
 };
