@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { format } from "date-fns";
 
-import { WeatherData } from "./types";
+import { WeatherData } from "@/types";
 
 interface WeatherWeeklyForecastCardProps {
   weatherData: WeatherData;

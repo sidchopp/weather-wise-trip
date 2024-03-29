@@ -1,7 +1,7 @@
-import { City } from "./types";
+import { CityData } from "@/types";
 
 interface CityCardProps {
-  cityData: City | null;
+  cityData: CityData;
 }
 
 const CityDescriptionCard = ({

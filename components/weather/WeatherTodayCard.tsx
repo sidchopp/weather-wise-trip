@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { WeatherData } from "./types";
+import { WeatherData } from "@/types";
 
 interface WeatherCardProps {
   weatherData: WeatherData;

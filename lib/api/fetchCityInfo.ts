@@ -1,6 +1,6 @@
-import { CityInfo } from "./types";
+import { CityData } from "@/types";
 
-const fetchCityInfo = async (city: string): Promise<CityInfo | null> => {
+const fetchCityInfo = async (city: string): Promise<CityData | null> => {
   try {
     const response = await fetch(`${process.env.CITY_INFO_API_URL}/${city}`);
 

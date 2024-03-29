@@ -1,4 +1,4 @@
-export interface CityInfo {
+export interface CityData {
   type: string;
   title: string;
   displaytitle: string;

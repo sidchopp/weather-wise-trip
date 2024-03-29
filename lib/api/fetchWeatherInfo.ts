@@ -1,4 +1,9 @@
-const fetchWeatherInfo = async (city: string, date: string) => {
+import { WeatherData } from "@/types";
+
+const fetchWeatherInfo = async (
+  city: string,
+  date: string
+): Promise<WeatherData | null> => {
   try {
     const getLatAndLong = await fetch(
       `${process.env.WEATHER_GEO_API_URL}?q=${city}&appid=${process.env.WEATHER_APP_ID}`
