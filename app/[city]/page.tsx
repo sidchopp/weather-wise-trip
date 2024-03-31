@@ -2,7 +2,6 @@ import { ReactElement } from "react";
 import { format } from "date-fns";
 
 import {
-  Heading,
   CityDescriptionCard,
   CitySelectionDropdown,
   WeatherTodayCard,
@@ -29,7 +28,6 @@ const CityHome = async ({ params }: CityHomeProps): Promise<ReactElement> => {
   return (
     <main className="pt-20 px-8 md:p-20">
       <CitySelectionDropdown />
-      <Heading />
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 flex flex-col md:flex-row">
         {weatherData && (
           <div className="col-span-1 md:col-span-1">
