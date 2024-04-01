@@ -6,7 +6,12 @@ const fetchWeatherInfo = async (
 ): Promise<WeatherData | null> => {
   try {
     const getLatAndLong = await fetch(
-      `${process.env.WEATHER_GEO_API_URL}?q=${city}&appid=${process.env.WEATHER_APP_ID}`
+      `${process.env.WEATHER_GEO_API_URL}?q=${city}&appid=${process.env.WEATHER_APP_ID}`,
+      {
+        next: {
+          revalidate: 1800,
+        },
+      }
     );
 
     if (!getLatAndLong.ok) {
