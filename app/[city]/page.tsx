@@ -8,12 +8,21 @@ import {
   WeatherWeeklyForecastCard,
 } from "@/components";
 import { fetchCityInfo, fetchWeatherInfo } from "@/lib/api";
+import { cityNames } from "@/lib/cityNames";
 
 interface CityHomeProps {
   params: { city: string };
 }
 
+export function generateStaticParams() {
+  return cityNames.map((cityName) => ({
+    city: cityName,
+  }));
+}
+
 const fetchData = async (city: string) => {
+  console.log(cityNames);
+
   const dateToday = format(new Date(), "yyyy-MM-dd");
   const weatherData = await fetchWeatherInfo(city, dateToday);
   const cityData = await fetchCityInfo(city);
