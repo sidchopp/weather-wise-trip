@@ -21,8 +21,6 @@ export function generateStaticParams() {
 }
 
 const fetchData = async (city: string) => {
-  console.log(cityNames);
-
   const dateToday = format(new Date(), "yyyy-MM-dd");
   const weatherData = await fetchWeatherInfo(city, dateToday);
   const cityData = await fetchCityInfo(city);
