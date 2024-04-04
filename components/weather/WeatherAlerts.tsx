@@ -4,10 +4,10 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { format } from "date-fns";
 import { AlertIcon } from "@/assets/icons";
-import { AlertType } from "@/types";
 
 const WeatherAlerts = ({ weatherAlerts }: any) => {
   const [isOpen, setIsOpen] = useState(false);
+  const alert = weatherAlerts[0];
 
   function closeModal() {
     setIsOpen(false);
@@ -49,41 +49,35 @@ const WeatherAlerts = ({ weatherAlerts }: any) => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-gray-800 p-6 text-left align-middle shadow-xl transition-all">
-                  {weatherAlerts.map((alert: AlertType) => {
-                    return (
-                      <div key={alert.start}>
-                        <Dialog.Title
-                          as="h3"
-                          className="text-lg font-bold leading-6 capitalize"
-                        >
-                          <div className="flex items-center">
-                            <AlertIcon />
-                            {alert.event}
-                          </div>
-                        </Dialog.Title>
-                        <p className="text-sm py-3">
-                          {format(new Date(alert.start * 1000), "EEEE")} -{" "}
-                          {format(new Date(alert.end * 1000), "EEEE")}
-                        </p>
-                        <div>
-                          <p className="text-sm">{alert.description}</p>
-                          <p className="text-xs py-2 font-medium">
-                            {" "}
-                            Issued by: {alert.sender_name}
-                          </p>
-                        </div>
-                        <div className="mt-4">
-                          <button
-                            type="button"
-                            className="inline-flex justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-sm font-medium hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                            onClick={closeModal}
-                          >
-                            Got it, thanks!
-                          </button>
-                        </div>
-                      </div>
-                    );
-                  })}
+                  <Dialog.Title
+                    as="h3"
+                    className="text-lg font-bold leading-6 capitalize"
+                  >
+                    <div className="flex items-center">
+                      <AlertIcon />
+                      {alert.event}
+                    </div>
+                  </Dialog.Title>
+                  <p className="text-sm py-3">
+                    {format(new Date(alert.start * 1000), "EEEE")} -{" "}
+                    {format(new Date(alert.end * 1000), "EEEE")}
+                  </p>
+                  <div>
+                    <p className="text-sm">{alert.description}</p>
+                    <p className="text-xs py-2 font-medium">
+                      {" "}
+                      Issued by: {alert.sender_name}
+                    </p>
+                  </div>
+                  <div className="mt-4">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-sm font-medium hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      onClick={closeModal}
+                    >
+                      Got it, thanks!
+                    </button>
+                  </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
