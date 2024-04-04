@@ -1,4 +1,14 @@
+export interface AlertType {
+  sender_name: string;
+  event: string;
+  start: number;
+  end: number;
+  description: string;
+  tags: string[];
+}
+
 export interface WeatherData {
+  alerts: AlertType;
   lat: number;
   lon: number;
   timezone: string;

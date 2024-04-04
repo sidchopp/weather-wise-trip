@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { WeatherData } from "@/types";
 import { SunriseAndSunSet } from "@/components/sunrise-sunset";
+import { WeatherAlerts } from "./WeatherAlerts";
 
 interface WeatherCardProps {
   weatherData: WeatherData;
@@ -70,10 +71,12 @@ const WeatherTodayCard = ({
           </p>
         </div>
       </div>
-
       <p className="text-sm md:text-base lg:text-lg pt-1 font-medium">
         {weatherToday.summary}
       </p>
+      {weatherData?.alerts && (
+        <WeatherAlerts weatherAlerts={weatherData.alerts} />
+      )}
     </div>
   );
 };
