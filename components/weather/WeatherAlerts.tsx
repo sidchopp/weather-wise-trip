@@ -20,7 +20,11 @@ const WeatherAlerts = ({ weatherAlerts }: any) => {
   return (
     <>
       <div className="inset-0 flex items-center justify-start">
-        <button type="button" onClick={openModal}>
+        <button
+          type="button"
+          onClick={openModal}
+          className="animate-pulse hover:animate-none hover:scale-105"
+        >
           <AlertIcon />
         </button>
       </div>
