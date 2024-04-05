@@ -2,7 +2,7 @@ import { WeatherData } from "@/types";
 
 const fetchWeatherInfo = async (
   city: string,
-  date: string
+  date?: string
 ): Promise<WeatherData | null> => {
   try {
     const getLatAndLong = await fetch(
@@ -21,7 +21,7 @@ const fetchWeatherInfo = async (
     const { lat, lon } = data;
 
     const getCityData = await fetch(
-      `${process.env.WEATHER_MAIN_API_URL}?lat=${lat}&lon=${lon}&exclude=minutely,hourly&date=${date}&units=metric&appid=${process.env.WEATHER_APP_ID}`
+      `${process.env.WEATHER_MAIN_API_URL}?lat=${lat}&lon=${lon}&exclude=minutely&date=${date}&units=metric&appid=${process.env.WEATHER_APP_ID}`
     );
 
     const cityData = await getCityData.json();

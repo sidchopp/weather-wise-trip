@@ -2,6 +2,7 @@ import Image from "next/image";
 import { WeatherData } from "@/types";
 import { SunriseAndSunSet } from "@/components/sunrise-sunset";
 import { WeatherAlerts } from "./WeatherAlerts";
+import { WeatherHourlyModal } from "./WeatherHourlyModal";
 
 interface WeatherCardProps {
   weatherData: WeatherData;
@@ -77,6 +78,7 @@ const WeatherTodayCard = ({
       {weatherData?.alerts && (
         <WeatherAlerts weatherAlerts={weatherData.alerts} />
       )}
+      <WeatherHourlyModal weatherData={weatherData} />
     </div>
   );
 };
