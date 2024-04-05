@@ -16,7 +16,7 @@ const CityDescriptionCard = ({
       <p className="text-base lg:text-lg text-gray-500 dark:text-gray-400 py-1">
         {cityData?.description}
       </p>
-      <p className="flex-grow">{cityData?.extract}</p>
+      <p className="flex-grow pb-2">{cityData?.extract}</p>
       <Link
         href={cityData?.content_urls?.desktop?.page}
         target="_blank"
