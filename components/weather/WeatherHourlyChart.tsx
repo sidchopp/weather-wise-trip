@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useEffect, useRef, ReactElement } from "react";
+import { useEffect, useRef, ReactElement } from "react";
 import Chart from "chart.js/auto";
 import { format } from "date-fns";
-
 import { WeatherData } from "@/types";
 
 interface WeatherHourlyChartProps {
@@ -15,13 +14,19 @@ const WeatherHourlyChart = ({
 }: WeatherHourlyChartProps): ReactElement => {
   const options = { timeZone: weatherData.timezone };
 
-  const timeAxisValues =
-    weatherData.hourly &&
-    weatherData.hourly.map((item) =>
-      format(new Date(item.dt * 1000).toLocaleString("en-US", options), "p")
+  const timeXAxisValues = (weatherData.hourly || []).map((item) => {
+    const formattedTime = format(
+      new Date(item.dt * 1000).toLocaleString("en-US", options),
+      "h"
     );
+    const formattedDate = format(
+      new Date(item.dt * 1000).toLocaleString("en-US", options),
+      "bbb"
+    );
+    return `${formattedTime}${" "}${formattedDate}`;
+  });
 
-  const temperatureAxisValues =
+  const temperatureYAxisValues =
     weatherData.hourly &&
     weatherData.hourly.map((item) => parseFloat(item.temp.toFixed(1)));
 
@@ -29,7 +34,7 @@ const WeatherHourlyChart = ({
   const chartInstance = useRef<Chart>();
 
   useEffect(() => {
-    if (chartRef.current && timeAxisValues && temperatureAxisValues) {
+    if (chartRef.current && timeXAxisValues && temperatureYAxisValues) {
       const ctx = chartRef.current.getContext("2d");
 
       if (ctx) {
@@ -40,11 +45,11 @@ const WeatherHourlyChart = ({
         chartInstance.current = new Chart(ctx, {
           type: "line",
           data: {
-            labels: timeAxisValues,
+            labels: timeXAxisValues,
             datasets: [
               {
-                label: "Temp (°C) ",
-                data: temperatureAxisValues,
+                label: "Temp (°C)",
+                data: temperatureYAxisValues,
                 borderWidth: 2,
               },
             ],
@@ -66,7 +71,7 @@ const WeatherHourlyChart = ({
         chartInstance.current.destroy();
       }
     };
-  }, [temperatureAxisValues, timeAxisValues]);
+  }, [timeXAxisValues, temperatureYAxisValues]);
 
   return (
     <div>
