@@ -78,7 +78,7 @@ const WeatherTodayCard = ({
       {weatherData?.alerts && (
         <WeatherAlerts weatherAlerts={weatherData.alerts} />
       )}
-      <div className="hidden sm:block">
+      <div className="hidden sm:block my-auto">
         <WeatherHourlyModal weatherData={weatherData} />
       </div>
     </div>
