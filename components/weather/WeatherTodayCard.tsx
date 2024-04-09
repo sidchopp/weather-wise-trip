@@ -72,14 +72,20 @@ const WeatherTodayCard = ({
           </p>
         </div>
       </div>
-      <p className="text-sm md:text-base lg:text-lg pt-1 font-medium">
+      <p className="text-sm md:text-base lg:text-lg py-1 font-medium">
         {weatherToday.summary}
       </p>
-      {weatherData?.alerts && (
-        <WeatherAlerts weatherAlerts={weatherData.alerts} />
-      )}
-      <div className="hidden sm:block my-auto">
-        <WeatherHourlyModal weatherData={weatherData} />
+      <div className="grid grid-cols-2 mt-auto">
+        <div className="justify-start flex items-center">
+          <div className="hidden sm:block my-auto">
+            <WeatherHourlyModal weatherData={weatherData} />
+          </div>
+        </div>
+        {weatherData?.alerts && (
+          <div className="justify-end flex items-center">
+            <WeatherAlerts weatherAlerts={weatherData.alerts} />
+          </div>
+        )}
       </div>
     </div>
   );

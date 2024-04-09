@@ -40,7 +40,7 @@ const WeatherWeeklyForecastCard = ({
               {Math.round(item.temp.max)}°C / {Math.round(item.temp.min)}
               °C
             </p>
-            <p className="text-xs text-slate-700 dark:text-slate-300 font-light">
+            <p className="text-xs text-slate-700 dark:text-slate-300 font-light mt-auto">
               {item.summary}
             </p>
           </div>
