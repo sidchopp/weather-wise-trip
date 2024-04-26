@@ -5,6 +5,9 @@ const nextConfig = {
       {
         hostname: "openweathermap.org",
       },
+      {
+        hostname: "images.unsplash.com",
+      },
     ],
   },
 };
