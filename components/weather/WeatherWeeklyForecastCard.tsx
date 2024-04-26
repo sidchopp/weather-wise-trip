@@ -19,24 +19,24 @@ const WeatherWeeklyForecastCard = ({
               key={item.dt}
               className="grid grid-cols-2 gap-4 flex items-center justify-center"
             >
-              <p className="text-sm font-semibold text-blue-600 dark:text-blue-500">
+              <p className="text-lg font-semibold text-blue-600 dark:text-blue-500">
                 {index === 0
                   ? "Today"
                   : format(new Date(item.dt * 1000), "EEE")}
               </p>
               {item.weather.map((weather) => (
-                <div key={weather.id}>
+                <div key={weather.id} className="flex justify-center">
                   <Image
                     key={weather.icon}
                     src={`${process.env.WEATHER_ICONS_URL}/${weather.icon}@2x.png`}
                     alt={weather.main}
-                    width={50}
-                    height={50}
+                    width={60}
+                    height={60}
                   />
                 </div>
               ))}
             </div>
-            <p className="text-sm py-1">
+            <p className="text-sm text-slate-700 dark:text-slate-300 font-semibold py-1">
               {Math.round(item.temp.max)}°C / {Math.round(item.temp.min)}
               °C
             </p>
