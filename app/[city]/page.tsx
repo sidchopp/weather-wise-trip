@@ -33,7 +33,7 @@ const CityHome = async ({ params }: CityHomeProps): Promise<ReactElement> => {
 
   return (
     <main className="py-20">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 flex flex-col md:flex-row">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-4 lg:gap-4">
         {weatherData && (
           <div className="col-span-1 md:col-span-1">
             <WeatherTodayCard weatherData={weatherData} />

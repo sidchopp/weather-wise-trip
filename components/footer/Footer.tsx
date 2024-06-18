@@ -1,8 +1,8 @@
 import Link from "next/link";
 const Footer = () => {
   return (
-    <footer className="p-8 md:p-12 bottom-0 left-0 right-0">
-      <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+    <footer className="py-8 md:py-12 bottom-0 left-0 right-0">
+      <div className="w-full mx-auto py-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <Link
             href="https://sid-chopra.netlify.app/"
@@ -34,7 +34,11 @@ const Footer = () => {
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
-          © 2024 Weather Wise trip. All Rights Reserved.
+          © 2024{" "}
+          <span className="text-blue-600 dark:text-blue-500">
+            Weather Wise trip
+          </span>
+          . All Rights Reserved.
         </span>
       </div>
     </footer>
