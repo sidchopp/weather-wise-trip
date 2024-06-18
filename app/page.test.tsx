@@ -1,12 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom"; // Import Jest DOM for matchers
+import "@testing-library/jest-dom";
 import Home from "./page";
-import { CitySelectionDropdown } from "../components";
-
-jest.mock("../components/city/CitySelectionDropdown", () => ({
-  ...jest.requireActual("../components/city/CitySelectionDropdown"),
-  CitySelectionDropdown: () => <div>City Selection Dropdown Mock</div>,
-}));
 
 describe("render Home page", () => {
   test("render Heading", () => {
