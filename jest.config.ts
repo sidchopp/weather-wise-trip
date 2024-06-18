@@ -17,15 +17,18 @@ const customJestConfig: Config = {
   coverageDirectory: "coverage",
   coverageProvider: "v8",
   testEnvironment: "jest-environment-jsdom",
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"], // Add this line if you need to configure the testing environment
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"], // Configure the testing environment setup file
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/$1", // Adjust the path alias if needed
+    "^@/(.*)$": "<rootDir>/$1", // Map '@/' to your root directory for easier imports
   },
   transform: {
-    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest", // Ensure babel-jest is installed and configured
+    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest", // Use babel-jest for JavaScript and TypeScript files
   },
-  testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
+  testMatch: [
+    "**/__tests__/**/*.[jt]s?(x)", // Match test files in __tests__ directories
+    "**/?(*.)+(spec|test).[tj]s?(x)", // Match files with .spec.js/.spec.ts or .test.js/.test.ts extension
+  ],
 };
 
-// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
+// Export createJestConfig to ensure next/jest can load the Next.js config asynchronously
 export default createJestConfig(customJestConfig);
