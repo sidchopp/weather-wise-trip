@@ -3,6 +3,7 @@ import { format } from "date-fns";
 
 import {
   CityDescriptionCard,
+  CitySelectionDropdown,
   WeatherTodayCard,
   WeatherWeeklyForecastCard,
 } from "@/components";
@@ -33,6 +34,7 @@ const CityHome = async ({ params }: CityHomeProps): Promise<ReactElement> => {
 
   return (
     <main className="py-20">
+      <CitySelectionDropdown />
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-4 lg:gap-4">
         {weatherData && (
           <div className="col-span-1 md:col-span-1">

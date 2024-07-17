@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import { Footer } from "@/components/footer";
-import { CitySelectionDropdown, Heading } from "../components";
+import { Heading } from "../components";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,7 +15,6 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
   <html lang="en">
     <body className="p-8 md:p-20">
-      <CitySelectionDropdown />
       <Heading />
       {children}
       <Footer />
